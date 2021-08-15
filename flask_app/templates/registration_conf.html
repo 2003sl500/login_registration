@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/css/style.css') }}" />
+    <title>Registration Confirmation</title>
+</head>
+<body>
+    <div class="container">
+        <header>Confirmation of Information</header>
+        <div id="info">
+            {% for info in reg_info %}
+            <p>Name: {{ info.first_name }} {{ info.last_name }}</p>
+            <p>Email: {{ info.email }}</p>
+            {% endfor %}
+        </div>
+        <div class="links">
+            <a href="/">Home</a>
+        </div>
+    </div>
+</body>
+</html>

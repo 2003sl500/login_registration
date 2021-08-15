@@ -1,0 +1,58 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: antiquewhite;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container {
+    width: 500px;
+    margin: 50px auto;
+}
+
+#info {
+    border: 5px ridge firebrick;
+    padding: 15px;
+}
+
+header {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+form {
+    border: 5px ridge firebrick;
+    padding: 15px;
+
+}
+
+form label, form input {
+    margin-top: 30px;
+
+}
+
+#button {
+   margin-bottom: 15px;
+}
+
+#btn {
+    background-color: lightblue;
+    border-radius: 7px;
+    box-shadow: 5px 5px 5px lightblue;
+    font-size: 1.05rem;
+}
+
+.links {
+    text-align: center;
+}
+
+.links a {
+    padding: 50px;
+    font-size: 1.3rem;
+}
+
+#homeLink {
+    padding: 20px;
+    font-size: 1.3rem;
+}
