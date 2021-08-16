@@ -24,11 +24,14 @@ def register():
     }
 
     if not Register.validate(request.form):
+        print("********** registration not valid")
         return redirect('/index/register_form')
-    
-    user_info = Register.create(data)
-    session['id'] = user_info
-    return redirect('/index/registration_conf')
+    else:
+        print("********** registration valid")
+        user_info = Register.create(data)
+        session['id'] = user_info
+        session['current_user_id'] = user_info
+        return redirect('/index/login/conf')
 
 @app.route('/index/registration_conf')
 def registration_conf():
