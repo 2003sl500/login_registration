@@ -56,3 +56,13 @@ form label, form input {
     padding: 20px;
     font-size: 1.3rem;
 }
+
+#logout {
+    width: 60px;
+    border: 5px ridge firebrick;
+    background-color: lightblue;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 5px 5px 10px rgba(178, 34, 34, 0.541);
+    border-radius: 10px;
+}
