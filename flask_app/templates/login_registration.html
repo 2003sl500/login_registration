@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Registration</title>
+		<style>
+			body {
+				margin: 0px;
+				padding: 0px;
+				background-color: antiquewhite;
+				font-family: "Lucida Sans", "Lucida Sans Regular",
+					"Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+					sans-serif;
+			}
+
+			.container {
+                margin: 30px auto;
+			}
+
+			.flex_container {
+				display: flex;
+                justify-content: center;
+			}
+
+            #registration, #login {
+                margin: 30px;
+            }
+
+			header {
+				font-size: 2rem;
+				text-align: center;
+				margin-bottom: 50px;
+			}
+
+			form {
+				border: 5px ridge firebrick;
+				padding: 15px;
+			}
+
+			form label,
+			form input {
+				margin-top: 30px;
+			}
+
+			#button-login {
+				margin-top: 15px;
+			}
+
+			#btn {
+				background-color: lightblue;
+				border-radius: 7px;
+				box-shadow: 5px 5px 5px lightblue;
+				font-size: 1.05rem;
+			}
+
+			#homeLink {
+				padding: 20px;
+				font-size: 1.3rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="flex_container">
+				<div id="registration">
+					<header>Registration:</header>
+					<div class="form">
+						<form action="/index/register" method="post">
+							<div class="row1">
+								<label for="first_name">First Name:</label>
+								<input
+									type="text"
+									name="first_name"
+									id="first_name"
+									value="{{ session['first_name'] }}"
+								/>
+								<br />
+								{% with first_name_error =
+								get_flashed_messages(category_filter=['first_name'])
+								%} {% for message in first_name_error %}
+								<span style="color: red">{{ message }}</span>
+								{% endfor %} {% endwith %}
+							</div>
+							<div class="row2">
+								<label for="last_name">Last Name:</label>
+								<input
+									type="text"
+									name="last_name"
+									id="last_name"
+									value="{{ session['last_name'] }}"
+								/>
+								<br />
+								{% with last_name_error =
+								get_flashed_messages(category_filter=['last_name'])
+								%} {% for message in last_name_error %}
+								<span style="color: red">{{ message }}</span>
+								{% endfor %} {% endwith %}
+							</div>
+							<div class="row3">
+								<label for="email">Email:</label>
+								<input
+									type="text"
+									name="email"
+									id="email"
+									value="{{ session['email'] }}"
+								/>
+								<br />
+								{% with email_error =
+								get_flashed_messages(category_filter=['email'])
+								%} {% for message in email_error %}
+								<span style="color: red">{{ message }}</span>
+								{% endfor %} {% endwith %}
+							</div>
+							<div class="row4">
+								<label for="password">Password:</label>
+								<input
+									type="password"
+									name="password"
+									id="password"
+								/>
+								<br />
+								{% with password_error =
+								get_flashed_messages(category_filter=['password'])
+								%} {% for message in password_error %}
+								<span style="color: red">{{ message }}</span>
+								{% endfor %} {% endwith %}
+							</div>
+							<div class="row5">
+								<label for="conf_password"
+									>Confirm Password:</label
+								>
+								<input
+									type="password"
+									name="conf_password"
+									id="conf_password"
+								/>
+								<br />
+								{% with conf_password_error =
+								get_flashed_messages(category_filter=['conf_password'])
+								%} {% for message in conf_password_error %}
+								<span style="color: red">{{ message }}</span>
+								{% endfor %} {% endwith %}
+							</div>
+							<div id="button">
+								<input
+									id="btn"
+									type="submit"
+									value="Register"
+								/>
+							</div>
+						</form>
+						<div id="homeLink">
+							<a href="/">Home</a>
+						</div>
+					</div>
+				</div>
+
+				<div id="login">
+					<header>Login:</header>
+					<form action="/index/login/form" method="POST">
+						<label for="email">Email Address:</label>
+						<input type="email" name="email" id="email" value="{{ session['email_address'] }}"/>
+						<br />
+						{% with email_address_error =
+						get_flashed_messages(category_filter=['email_address'])
+						%} {% for message in email_address_error %}
+						<span style="color: red">{{ message }}</span>
+						{% endfor %} {% endwith %}
+						<br />
+						<label for="password">Password:</label>
+						<input type="password" name="password" id="password" />
+						<br />
+						{% with password_login_error =
+						get_flashed_messages(category_filter=['password_login']) %} {%
+						for message in password_login_error %}
+						<span style="color: red">{{ message }}</span>
+						{% endfor %} {% endwith %}
+						<br />
+						<input id="btn" type="submit" value="Login" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

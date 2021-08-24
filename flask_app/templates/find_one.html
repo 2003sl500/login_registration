@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find One User</title>
+    <style>
+        body {
+				margin: 0px;
+				padding: 0px;
+				background-color: antiquewhite;
+				font-family: "Lucida Sans", "Lucida Sans Regular",
+					"Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+					sans-serif;
+			}
+
+			.container {
+                margin: 30px auto;
+			}
+
+			.flex_container {
+				display: flex;
+                justify-content: center;
+			}
+
+            #registration, #login {
+                margin: 30px;
+            }
+
+			header {
+				font-size: 2rem;
+				text-align: center;
+				margin-bottom: 50px;
+			}
+
+			form {
+				border: 5px ridge firebrick;
+				padding: 15px;
+			}
+
+			form label,
+			form input {
+				margin-top: 30px;
+			}
+
+			#button-login {
+				margin-top: 15px;
+			}
+
+			#btn {
+				background-color: lightblue;
+				border-radius: 7px;
+				box-shadow: 5px 5px 5px lightblue;
+				font-size: 1.05rem;
+			}
+
+			#homeLink {
+				padding: 20px;
+				font-size: 1.3rem;
+			}
+
+            table {
+                border: 3px ridge firebrick;
+                width: 600px;
+            }
+
+            tr, th, td {
+                border: 2px ridge firebrick;
+                height: 25px;
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>Read All Users</header>
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+            {% for users_info in some_info %}
+            <tr>
+                <td>{{ users_info.first_name }}</td>
+                <td>{{ users_info.last_name }}</td>
+                <td>{{ users_info.email }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

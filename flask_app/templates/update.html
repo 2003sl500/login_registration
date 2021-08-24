@@ -55,16 +55,17 @@
 	</head>
 	<body>
 		<div class="container">
-			<header>Registration:</header>
+			<header>Update Information:</header>
 			<div class="form">
-				<form action="/index/register" method="post">
+				{% for some_info in some_info %}
+				<form action="/index/update/user/{{ some_info.id }}" method="post">
 					<div class="row1">
 						<label for="first_name">First Name:</label>
 						<input
 							type="text"
 							name="first_name"
 							id="first_name"
-							value="{{ session['first_name'] }}"
+							value="{{ some_info.first_name }}"
 						/>
 						<br />
 						{% with first_name_error =
@@ -79,7 +80,7 @@
 							type="text"
 							name="last_name"
 							id="last_name"
-							value="{{ session['last_name'] }}"
+							value="{{ some_info.last_name }}"
 						/>
 						<br />
 						{% with last_name_error =
@@ -94,7 +95,7 @@
 							type="text"
 							name="email"
 							id="email"
-							value="{{ session['email'] }}"
+							value="{{ some_info.email }}"
 						/>
 						<br />
 						{% with email_error =
@@ -131,6 +132,7 @@
 						<input id="btn" type="submit" value="Register" />
 					</div>
 				</form>
+				{% endfor %}
 				<div id="homeLink">
 					<a href="/">Home</a>
 				</div>
